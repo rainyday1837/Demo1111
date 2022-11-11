@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application' //run的插件
+    id 'jacoco' //覆蓋率報告套件
 }
 
 group 'com.github.rainyday1837'
@@ -17,9 +18,18 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport //產生覆蓋率報告
 }
 
 //設定主程式所在的class
 application {
     mainClassName 'com.github.rainyday1837.Main'
 }
+//產 xml 格式報告
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled = true
+    }
+}
+
