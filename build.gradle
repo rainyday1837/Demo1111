@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application' //run的插件
 }
 
 group 'com.github.rainyday1837'
@@ -16,4 +17,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+//設定主程式所在的class
+application {
+    mainClassName 'com.github.rainyday1837.Main'
 }
